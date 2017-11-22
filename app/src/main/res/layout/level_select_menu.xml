@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <TextView
+        android:id="@+id/levelSelectTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="Level Select"
+        android:textSize="32sp"
+        android:textColor="@color/colorPrimaryDark"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <Button
+        android:id="@+id/helpButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="HELP"
+        android:textSize="16sp"
+        android:textAlignment="center"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <TextView
+        android:id="@+id/levelOneText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="1"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        android:textColor="@color/colorAccent"
+        app:layout_constraintRight_toLeftOf="@+id/levelSelectTextView"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/levelOneImageButton"
+        android:layout_marginTop="8dp"
+        app:layout_constraintHorizontal_bias="0.477"
+        android:layout_marginBottom="-1dp"
+        app:layout_constraintVertical_bias="0.505" />
+
+    <TextView
+        android:id="@+id/levelTwoText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="2"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="@color/colorAccent"
+        android:textAlignment="center"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/levelTwoImageButton"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="0dp" />
+
+    <TextView
+        android:id="@+id/levelThreeText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="3"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        android:textColor="@color/colorAccent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/levelSelectTextView"
+        app:layout_constraintBottom_toTopOf="@+id/levelThreeImageButton"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="-1dp" />
+
+    <ImageButton
+        android:id="@+id/levelOneImageButton"
+        android:layout_width="177dp"
+        android:layout_height="128dp"
+        android:contentDescription="Level One Image"
+        app:layout_constraintRight_toLeftOf="@+id/levelTwoImageButton"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="8dp"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintVertical_bias="1.0"
+        app:layout_constraintBottom_toTopOf="@+id/levelOneBestTimesButton"
+        android:layout_marginBottom="0dp" />
+
+
+    <ImageButton
+        android:id="@+id/levelTwoImageButton"
+        android:layout_width="177dp"
+        android:layout_height="128dp"
+        android:layout_centerVertical="true"
+        android:contentDescription="Level Two Image"
+        app:layout_constraintBottom_toTopOf="@+id/levelTwoBestTimesButton"
+        android:layout_marginRight="8dp"
+        app:layout_constraintVertical_bias="1.0"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/levelSelectTextView"
+        android:layout_marginTop="8dp"
+        app:layout_constraintHorizontal_bias="0.5" />
+
+    <ImageButton
+        android:id="@+id/levelThreeImageButton"
+        android:layout_width="177dp"
+        android:layout_height="128dp"
+        android:contentDescription="Level Three Image"
+        app:layout_constraintBottom_toTopOf="@+id/levelThreeBestTimesButton"
+        app:layout_constraintLeft_toRightOf="@+id/levelTwoImageButton"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.5" />
+
+
+    <Button
+        android:id="@+id/levelOneBestTimesButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="Best Times"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginLeft="8dp"
+        android:layout_marginBottom="0dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/levelSelectTextView"
+        android:layout_marginRight="8dp" />
+
+    <Button
+        android:id="@+id/levelTwoBestTimesButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="Best Times"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <Button
+        android:id="@+id/levelThreeBestTimesButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="Best Times"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/levelSelectTextView"
+        android:layout_marginLeft="8dp"
+        android:layout_marginBottom="0dp"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent" />
+
+</android.support.constraint.ConstraintLayout>
+

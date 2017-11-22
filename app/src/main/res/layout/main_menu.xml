@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:orientation="horizontal"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/welcomeMenuText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Welcome to..."
+        android:textColor="@color/colorPrimaryDark"
+        android:textAlignment="center"
+        android:textSize="24sp"
+
+        android:paddingBottom="12dp"
+        android:layout_above="@+id/titleTextView"
+        android:layout_centerInParent="true"
+        />
+
+    <TextView
+        android:id="@+id/titleTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Bubble Master"
+        android:textColor="@color/colorPrimaryDark"
+        android:textAlignment="center"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center_vertical"
+        android:paddingBottom="32dp" />
+
+    <TextView
+        android:id="@+id/preAlphaTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Now in Pre-Alpha!"
+        android:textSize="24sp"
+        android:textAlignment="center"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:rotation="-30"
+        android:textStyle="italic"
+
+        android:layout_below="@+id/titleTextView"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true" />
+
+    <Button
+        android:id="@+id/gameStartButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/colorAccent"
+        android:text="Start!"
+        android:layout_below="@+id/titleTextView"
+        android:layout_centerInParent="true"
+        />
+
+</RelativeLayout>

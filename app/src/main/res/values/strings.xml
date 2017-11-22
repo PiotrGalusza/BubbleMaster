@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">Bubbles</string>
+
+    <string name="post_level_passed_title">YOU PASSED</string>
+    <string name="post_level_encouragement">ON TO THE NEXT ONE!</string>
+    <string name="post_level_discouraged">Maybe next time?</string>
+    <string name="post_level_failed_title">YOU FAILED</string>
+
+    <string name="times_back">BACK</string>
+    <string name="times_blue_bub">Blue Bubble:</string>
+    <string name="times_green_bub">Green Bubble:</string>
+    <string name="times_red_bub">Red Bubble:</string>
+
+    <string name="level_accept_defeat">GIVE UP</string>
+
+    <string name="colors_select_prompt">Select a Bubble Color:</string>
+    <string name="colors_green">Green</string>
+    <string name="colors_blue">Blue</string>
+    <string name="colors_red">Red</string>
+    <string name="colors_green_desc">Nice and slow, for the weak</string>
+    <string name="colors_blue_desc">Normal difficulty</string>
+    <string name="colors_red_desc">Impossible</string>
+
+    <string name="level_select_title">Level Select</string>
+    <string name="level_select_help">HELP</string>
+    <string name="level_select_one_times">Best Times</string>
+    <string name="level_select_two_times">Best Times</string>
+    <string name="level_select_three_times">Best Times</string>
+
+    <string name="help_title">How To Play</string>
+    <string name="help_goal_desc">Get your bubble to the end as quickly as possible!</string>
+    <string name="help_warning_desc">Be careful not to hit the obstacles, or your bubble will pop!</string>
+    <string name="help_bubble_info_desc">Each bubble color comes with it\'s own effect. Win with them all to unlock the secret!</string>
+    <string name="help_confirmation">Got it!</string>
+
+</resources>

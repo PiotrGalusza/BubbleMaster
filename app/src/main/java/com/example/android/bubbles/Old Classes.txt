@@ -1,0 +1,223 @@
+package com.example.android.bubbles;
+
+
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.view.SurfaceHolder;
+import android.view.SurfaceView;
+
+public class DrawBubble extends SurfaceView {
+
+    Bitmap blueBub;
+    SurfaceHolder holder;
+
+    public DrawBubble(Context context) {
+        super(context);
+        blueBub = BitmapFactory.decodeResource(getResources(), R.drawable.blueball);
+    }
+
+
+
+}
+
+
+package com.example.android.bubbles;
+
+import android.app.Activity;
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
+import android.os.Bundle;
+import android.view.SurfaceHolder;
+import android.view.SurfaceView;
+
+import java.util.List;
+
+public class BubbleMover extends Activity implements SensorEventListener {
+    Bitmap blueBubble;
+    SensorManager manager;
+    Bubble levelView;
+    Sensor accelerometerData;
+
+    float startingX = 0;
+    float startingY = 0;
+    float bubbleX;
+    float bubbleY;
+    float sensorX = 0;
+    float sensorY = 0;
+
+//    public BubbleMover(Context context) {
+//        super(context);
+//        blueBubble = BitmapFactory.decodeResource(getResources(), R.drawable.blueball);
+//    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        manager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
+        List<Sensor> sensorManagerList = manager.getSensorList(Sensor.TYPE_ACCELEROMETER);
+
+        // Verify the device contains an accelerometer.
+        if(sensorManagerList.size() != 0) {
+            accelerometerData = sensorManagerList.get(0);
+            manager.registerListener(this, accelerometerData, SensorManager.SENSOR_DELAY_GAME);
+        }
+//        blueBubble = BitmapFactory.decodeResource(getResources(), R.drawable.blueball);
+//
+//
+//        // Starting position may be changed based off which level the user selects
+//        bubbleX = startingX;
+//        bubbleY = startingY;
+//        sensorX = 0;
+//        sensorY = 0;
+//
+//        levelView = new DrawBubble(this);
+//        levelView.resume();
+//        setContentView(levelView);
+        levelView = new Bubble(this);
+        levelView.setBackgroundResource(R.drawable.leveloneimage);
+        setContentView(levelView);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        manager.registerListener(this, accelerometerData, manager.SENSOR_DELAY_GAME);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        manager.unregisterListener(this);
+    }
+
+    @Override
+    public void onSensorChanged(SensorEvent sensorEvent) {
+        sensorX = sensorEvent.values[0];
+        sensorY = sensorEvent.values[1];
+    }
+
+    @Override
+    public void onAccuracyChanged(Sensor sensor, int i) {
+        //Nothing to do here yet...
+    }
+
+    public class Bubble extends SurfaceView implements Runnable {
+        private float bubbleXPos = 5;
+        private float bubbleYPos = 5;
+        private float bubbleXVel;
+        private float bubbleYVel;
+        private float xOrigin;
+        private float yOrigin;
+        private float distanceToX;
+        private float distanceToY;
+        private float horizontalBound;
+        private float verticalBound;
+        SurfaceHolder holder;
+        Thread thread = null;
+        boolean isRunning;
+
+        public Bubble(Context context) {
+            super(context);
+            //holder = getHolder();
+            //blueBubble = BitmapFactory.decodeResource(getResources(), R.drawable.blueball);
+
+
+
+//            for (int i = 0; i < mBalls.length; i++) {
+//                mBalls[i] = new Particle(getContext());
+//                mBalls[i].setBackgroundResource(R.drawable.ball);
+//                mBalls[i].setLayerType(LAYER_TYPE_HARDWARE, null);
+//                addView(mBalls[i], new ViewGroup.LayoutParams(mDstWidth, mDstHeight));
+        }
+
+        public void calculateHardMaths(float sx, float sy, float dT) {
+            float ax = -sx/5;
+            float ay = -sy/5;
+
+            bubbleXPos += bubbleXVel * dT + ax * dT * dT / 2;
+            bubbleYPos += bubbleYVel * dT + ay * dT * dT / 2;
+            bubbleXVel += ax * dT;
+            bubbleYVel += ay * dT;
+        }
+
+        public void resolveBorderBounces() { ///////
+            final float xmax = horizontalBound;
+            final float ymax = verticalBound;
+            final float x = bubbleXPos;
+            final float y = bubbleYPos;
+            if (x > xmax) {
+                bubbleXPos = xmax;
+                bubbleXVel = 0;
+            } else if (x < -xmax) {
+                bubbleXPos = -xmax;
+                bubbleXVel = 0;
+            }
+            if (y > ymax) {
+                bubbleYPos = ymax;
+                bubbleYVel = 0;
+            } else if (y < -ymax) {
+                bubbleYPos = -ymax;
+                bubbleYVel = 0;
+            }
+        }
+
+        @Override
+        protected void onDraw(Canvas canvas) {
+            super.onDraw(canvas);
+            canvas.drawBitmap(blueBubble, canvas.getWidth()/2, canvas.getHeight()/2, null);
+            // Compute new position
+            final Bubble blueBub = levelView;
+            final long now = System.currentTimeMillis();
+            final float sx = sensorX;
+            final float sy = sensorY;
+
+            //particleSystem.update(sx, sy, now);
+
+            float xc = xOrigin;
+            float yc = yOrigin;
+            float xs = distanceToX;
+            float ys = distanceToY;
+
+            float x = xc + getBubbleXPos() * xs;
+            float y = yc - getBubbleYPos() * ys;
+            blueBub.setTranslationX(x);
+            blueBub.setTranslationY(y);
+
+
+            // Redraws???
+            invalidate();
+        }
+
+        public float getBubbleXPos() {
+            return bubbleXPos;
+        }
+
+        public float getBubbleYPos() {
+            return bubbleYPos;
+        }
+
+
+        @Override
+        public void run() {
+            while (isRunning) {
+                if (!holder.getSurface().isValid()) {
+                    continue;
+                }
+
+                //Canvas currentCanvas = holder.lockCanvas();
+                //currentCanvas.drawColor(Color.WHITE);
+                //currentCanvas.drawBitmap(blueBubble, sensorX*50, sensorY*50, null);
+                //holder.unlockCanvasAndPost(currentCanvas);
+            }
+        }
+    }
+
+}

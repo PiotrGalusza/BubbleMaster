@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <TextView
+        android:id="@+id/bestTimesTitleText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="Current Best Times for Level _"
+        android:textAlignment="center"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        android:textColor="@color/colorPrimaryDark"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true" />
+
+    <TextView
+        android:id="@+id/blueBubbleBestTimeText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="Blue Bubble: "
+        android:textSize="24sp"
+        android:textColor="@color/colorPrimary"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/bestTimesTitleText"
+        android:layout_marginRight="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp" />
+
+    <TextView
+        android:id="@+id/greenBubbleBestTimesText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="Green Bubble: "
+        android:textSize="24sp"
+        android:textColor="@color/colorPrimary"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/blueBubbleBestTimeText"
+        android:layout_marginRight="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp" />
+
+    <TextView
+        android:id="@+id/redBubbleBestTimesText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="Red Bubble: "
+        android:textSize="24sp"
+        android:textColor="@color/colorPrimary"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/greenBubbleBestTimesText"
+        android:layout_marginRight="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp" />
+
+    <TextView
+        android:id="@+id/blueBubbleDatabaseTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="24sp"
+        tools:text=":59 sec"
+        android:layout_below="@+id/bestTimesTitleText"
+        android:layout_marginRight="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:layout_toRightOf="@+id/blueBubbleBestTimeText"
+        android:layout_toEndOf="@+id/blueBubbleBestTimeText" />
+
+    <TextView
+        android:id="@+id/greenBubbleDatabaseTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text=":45 sec"
+        android:textSize="24sp"
+        android:layout_below="@+id/blueBubbleDatabaseTime"
+        android:layout_alignStart="@+id/blueBubbleDatabaseTime"
+        android:layout_alignLeft="@+id/blueBubbleDatabaseTime"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp" />
+
+    <TextView
+        android:id="@+id/redBubbleDatabaseTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="1:45 sec"
+        android:textSize="24sp"
+        android:layout_below="@+id/greenBubbleDatabaseTime"
+        android:layout_alignStart="@+id/greenBubbleDatabaseTime"
+        android:layout_alignLeft="@+id/greenBubbleDatabaseTime"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp" />
+
+    <Button
+        android:id="@+id/returnToLevelSelectButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="BACK"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="12dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"/>
+
+</RelativeLayout>
